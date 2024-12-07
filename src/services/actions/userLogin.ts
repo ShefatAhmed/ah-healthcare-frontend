@@ -1,8 +1,7 @@
 "use server";
+import { FieldValues } from "react-hook-form";
 
-import { FormValues } from "@/app/login/page";
-
-export const userLogin = async (data: FormValues) => {
+export const userLogin = async (data: FieldValues) => {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_BACKEND_API_URL}/auth/login`,
     {

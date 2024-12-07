@@ -1,47 +1,23 @@
 "use client";
-import {
-  Box,
-  Button,
-  Container,
-  Grid,
-  Stack,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Box, Button, Container, Grid, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import assets from "@/assets";
 import Link from "next/link";
 
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm, SubmitHandler, FieldValues } from "react-hook-form";
 import { modifyPayload } from "@/utils/modifyPayload";
 import { registerPatient } from "@/services/actions/registerPatient";
 import { toast } from "sonner";
 import { useRouter } from "next/navigation";
 import { userLogin } from "@/services/actions/userLogin";
 import { storeUserInfo } from "@/services/auth.services";
-
-type IPatientData = {
-  name: string;
-  email: string;
-  contactNumber: string;
-  address: string;
-};
-
-type IPatientRegisterFormData = {
-  password: string;
-  patient: IPatientData;
-};
+import AHForm from "@/components/Forms/AHForm";
+import AHInput from "@/components/Forms/AHInput";
 
 const RegisterPage = () => {
   const router = useRouter();
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm<IPatientRegisterFormData>();
 
-  const onSubmit: SubmitHandler<IPatientRegisterFormData> = async (values) => {
+  const handleRegister = async (values: FieldValues) => {
     const data = modifyPayload(values);
     try {
       const res = await registerPatient(data);
@@ -100,60 +76,50 @@ const RegisterPage = () => {
             </Box>
           </Stack>
           <Box>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <AHForm onSubmit={handleRegister}>
               <Grid container spacing={2} my={2}>
                 <Grid item md={12}>
-                  <TextField
-                    id="outlined-basic"
+                  <AHInput
                     label="Name"
-                    variant="outlined"
-                    size="small"
                     fullWidth={true}
-                    {...register("patient.name")}
+                    name="patient.name"
+                    required={true}
                   />
                 </Grid>
                 <Grid item md={6}>
-                  <TextField
-                    id="outlined-basic"
+                  <AHInput
                     label="Email"
                     type="email"
-                    variant="outlined"
-                    size="small"
                     fullWidth={true}
-                    {...register("patient.email")}
+                    required={true}
+                    name="patient.email"
                   />
                 </Grid>
                 <Grid item md={6}>
-                  <TextField
-                    id="outlined-basic"
+                  <AHInput
                     label="Password"
                     type="password"
-                    variant="outlined"
-                    size="small"
                     fullWidth={true}
-                    {...register("password")}
+                    required={true}
+                    name="password"
                   />
                 </Grid>
                 <Grid item md={6}>
-                  <TextField
-                    id="outlined-basic"
+                  <AHInput
                     label="Contact Number"
                     type="tel"
-                    variant="outlined"
-                    size="small"
                     fullWidth={true}
-                    {...register("patient.contactNumber")}
+                    required={true}
+                    name="patient.contactNumber"
                   />
                 </Grid>
                 <Grid item md={6}>
-                  <TextField
-                    id="outlined-basic"
+                  <AHInput
                     label="Address"
                     type="text"
-                    variant="outlined"
-                    size="small"
                     fullWidth={true}
-                    {...register("patient.address")}
+                    required={true}
+                    name="patient.address"
                   />
                 </Grid>
               </Grid>
@@ -169,7 +135,7 @@ const RegisterPage = () => {
               <Typography component="p" fontWeight={300}>
                 Do you already have an account? <Link href="/login">login</Link>
               </Typography>
-            </form>
+            </AHForm>
           </Box>
         </Box>
       </Stack>
