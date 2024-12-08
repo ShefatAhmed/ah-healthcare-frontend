@@ -9,7 +9,7 @@ type TInputProps = {
   fullWidth?: boolean;
   sx?: SxProps;
   placeholder?: string;
-  required: boolean;
+  required?: boolean;
 };
 
 const AHInput = ({
@@ -27,7 +27,7 @@ const AHInput = ({
     <Controller
       control={control}
       name={name}
-      render={({ field }) => (
+      render={({ field, fieldState: {error} }) => (
         <TextField
           {...field}
           sx={{ ...sx }}
@@ -38,6 +38,8 @@ const AHInput = ({
           placeholder={label}
           required={required}
           fullWidth={fullWidth}
+          error={!!error?.message}
+          helperText={error?.message}
         />
       )}
     />

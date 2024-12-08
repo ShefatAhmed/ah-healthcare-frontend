@@ -4,12 +4,19 @@ import AHForm from "@/components/Forms/AHForm";
 import AHInput from "@/components/Forms/AHInput";
 import { userLogin } from "@/services/actions/userLogin";
 import { storeUserInfo } from "@/services/auth.services";
+import { zodResolver } from "@hookform/resolvers/zod";
 import { Box, Button, Container, Grid, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { FieldValues } from "react-hook-form";
 import { toast } from "sonner";
+import { z } from "zod";
+
+export const validationSchema = z.object({
+  email: z.string().email("Please enter a valid email address!"),
+  password: z.string().min(6, "Must be at least 6 characters"),
+});
 
 const LoginPage = () => {
   const router = useRouter();
@@ -59,14 +66,20 @@ const LoginPage = () => {
               </Typography>
             </Box>
             <Box>
-              <AHForm onSubmit={handleLogin}>
+              <AHForm
+                onSubmit={handleLogin}
+                resolver={zodResolver(validationSchema)}
+                defaultValues={{
+                  email: "",
+                  password: "",
+                }}
+              >
                 <Grid container spacing={2} my={2}>
                   <Grid item md={6}>
                     <AHInput
                       name="email"
                       label="Email"
                       type="email"
-                      required={true}
                       fullWidth={true}
                     />
                   </Grid>
@@ -75,7 +88,6 @@ const LoginPage = () => {
                       name="password"
                       label="Password"
                       type="password"
-                      required={true}
                       fullWidth={true}
                     />
                   </Grid>
