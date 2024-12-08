@@ -9,6 +9,7 @@ import { Box, Button, Container, Grid, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useState } from "react";
 import { FieldValues } from "react-hook-form";
 import { toast } from "sonner";
 import { z } from "zod";
@@ -20,6 +21,7 @@ export const validationSchema = z.object({
 
 const LoginPage = () => {
   const router = useRouter();
+  const [error, setError] = useState("");
   const handleLogin = async (values: FieldValues) => {
     try {
       const res = await userLogin(values);
@@ -27,6 +29,8 @@ const LoginPage = () => {
         toast.success(res?.message);
         storeUserInfo({ accessToken: res?.data?.accessToken });
         router.push("/");
+      } else {
+        setError(res.message);
       }
     } catch (err: any) {
       console.error(err.message);
@@ -57,14 +61,40 @@ const LoginPage = () => {
               alignItems: "center",
             }}
           >
-            <Box>
-              <Image src={assets.svgs.logo} width={50} height={50} alt="logo" />
-            </Box>
-            <Box>
-              <Typography variant="h6" fontWeight={600}>
-                Login AH HealthCare
-              </Typography>
-            </Box>
+            <Stack>
+              <Box>
+                <Image
+                  src={assets.svgs.logo}
+                  width={50}
+                  height={50}
+                  alt="logo"
+                />
+              </Box>
+              <Box>
+                <Typography variant="h6" fontWeight={600}>
+                  Login AH HealthCare
+                </Typography>
+              </Box>
+            </Stack>
+            {error && typeof error === "string" && (
+              <Box
+                sx={{
+                  width: "100%",
+                }}
+              >
+                <Typography
+                  sx={{
+                    backgroundColor: "red",
+                    padding: "1px",
+                    borderRadius: "2px",
+                    color: "white",
+                    marginTop: "5px",
+                  }}
+                >
+                  {error}
+                </Typography>
+              </Box>
+            )}
             <Box>
               <AHForm
                 onSubmit={handleLogin}

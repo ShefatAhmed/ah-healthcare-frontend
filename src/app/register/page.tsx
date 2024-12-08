@@ -15,6 +15,7 @@ import AHForm from "@/components/Forms/AHForm";
 import AHInput from "@/components/Forms/AHInput";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { useState } from "react";
 
 export const patientValidationSchema = z.object({
   name: z.string().min(1, "Please enter your name!"),
@@ -42,6 +43,7 @@ export const defaultValues = {
 
 const RegisterPage = () => {
   const router = useRouter();
+  const [error, setError] = useState("");
 
   const handleRegister = async (values: FieldValues) => {
     const data = modifyPayload(values);
@@ -57,6 +59,8 @@ const RegisterPage = () => {
           storeUserInfo({ accessToken: result?.data?.accessToken });
           router.push("/");
         }
+      } else {
+        setError(res.message);
       }
     } catch (err: any) {
       console.error(err.message);
@@ -101,6 +105,25 @@ const RegisterPage = () => {
               </Typography>
             </Box>
           </Stack>
+          {error && typeof error === "string" && (
+            <Box
+              sx={{
+                width: "100%",
+              }}
+            >
+              <Typography
+                sx={{
+                  backgroundColor: "red",
+                  padding: "1px",
+                  borderRadius: "2px",
+                  color: "white",
+                  marginTop: "5px",
+                }}
+              >
+                {error}
+              </Typography>
+            </Box>
+          )}
           <Box>
             <AHForm
               onSubmit={handleRegister}
