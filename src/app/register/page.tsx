@@ -13,6 +13,32 @@ import { userLogin } from "@/services/actions/userLogin";
 import { storeUserInfo } from "@/services/auth.services";
 import AHForm from "@/components/Forms/AHForm";
 import AHInput from "@/components/Forms/AHInput";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+export const patientValidationSchema = z.object({
+  name: z.string().min(1, "Please enter your name!"),
+  email: z.string().email("Please enter a valid email address!"),
+  contactNumber: z
+    .string()
+    .regex(/^\d{11}$/, "Please provide a valid phone number!"),
+  address: z.string().min(1, "Please enter your address!"),
+});
+
+export const validationSchema = z.object({
+  password: z.string().min(6, "Must be at least 6 characters"),
+  patient: patientValidationSchema,
+});
+
+export const defaultValues = {
+  password: "",
+  patient: {
+    name: "",
+    email: "",
+    contactNumber: "",
+    address: "",
+  },
+};
 
 const RegisterPage = () => {
   const router = useRouter();
@@ -76,22 +102,20 @@ const RegisterPage = () => {
             </Box>
           </Stack>
           <Box>
-            <AHForm onSubmit={handleRegister}>
+            <AHForm
+              onSubmit={handleRegister}
+              resolver={zodResolver(validationSchema)}
+              defaultValues={defaultValues}
+            >
               <Grid container spacing={2} my={2}>
                 <Grid item md={12}>
-                  <AHInput
-                    label="Name"
-                    fullWidth={true}
-                    name="patient.name"
-                    required={true}
-                  />
+                  <AHInput label="Name" fullWidth={true} name="patient.name" />
                 </Grid>
                 <Grid item md={6}>
                   <AHInput
                     label="Email"
                     type="email"
                     fullWidth={true}
-                    required={true}
                     name="patient.email"
                   />
                 </Grid>
@@ -100,7 +124,6 @@ const RegisterPage = () => {
                     label="Password"
                     type="password"
                     fullWidth={true}
-                    required={true}
                     name="password"
                   />
                 </Grid>
@@ -109,7 +132,6 @@ const RegisterPage = () => {
                     label="Contact Number"
                     type="tel"
                     fullWidth={true}
-                    required={true}
                     name="patient.contactNumber"
                   />
                 </Grid>
@@ -118,7 +140,6 @@ const RegisterPage = () => {
                     label="Address"
                     type="text"
                     fullWidth={true}
-                    required={true}
                     name="patient.address"
                   />
                 </Grid>
