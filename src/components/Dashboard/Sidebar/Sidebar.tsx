@@ -12,7 +12,7 @@ import { useEffect, useState } from "react";
 const Sidebar = () => {
   const [userRole, setUserRole] = useState("");
   useEffect(() => {
-    const { role } = getUserInfo() as any;
+    const { role } = getUserInfo() as anya;
     setUserRole(role);
   }, []);
   return (
