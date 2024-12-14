@@ -60,7 +60,9 @@ const LoginPage = () => {
               alignItems: "center",
             }}
           >
-            <Stack>
+            <Stack sx={{
+              alignItems: "center"
+            }}>
               <Box>
                 <Image
                   src="https://i.ibb.co.com/sCmZPpL/logo.png"
