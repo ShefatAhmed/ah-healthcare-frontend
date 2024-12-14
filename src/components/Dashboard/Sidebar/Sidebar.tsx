@@ -1,7 +1,7 @@
 "use client";
 import { Box, List, Stack, Typography } from "@mui/material";
 import Image from "next/image";
-import assets from "@/assets";
+import logo from "@/assets/svgs/logo.svg";
 import Link from "next/link";
 import { drawerItems } from "@/utils/drawerItems";
 import { UserRole } from "@/types";
@@ -12,7 +12,7 @@ import { useEffect, useState } from "react";
 const Sidebar = () => {
   const [userRole, setUserRole] = useState("");
   useEffect(() => {
-    const { role } = getUserInfo() as anya;
+    const { role } = getUserInfo() as any;
     setUserRole(role);
   }, []);
   return (
@@ -29,7 +29,7 @@ const Sidebar = () => {
         component={Link}
         href="/"
       >
-        <Image src={assets.svgs.logo} width={40} height={40} alt="logo" />
+        <Image src="https://i.ibb.co.com/sCmZPpL/logo.png" width={40} height={40} alt="logo" />
         <Typography
           variant="h6"
           component="h1"

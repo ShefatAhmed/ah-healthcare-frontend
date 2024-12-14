@@ -1,6 +1,6 @@
 import { Box, Button, Container, Typography } from "@mui/material";
 import Image from "next/image";
-import assets from "@/assets";
+import arrow from "@/assets/svgs/arrow.svg";
 
 const HeroSection = () => {
   return (
@@ -25,7 +25,7 @@ const HeroSection = () => {
             left: "-120px",
           }}
         >
-          <Image src={assets.svgs.grid} alt="grid" />
+          <Image src="https://i.ibb.co.com/YfQxZJY/grid.png" width={100} height={100} alt="grid" />
         </Box>
         <Typography variant="h3" component="h1" fontWeight={600}>
           Healthier Hearts
@@ -66,12 +66,12 @@ const HeroSection = () => {
         }}
       >
         <Box sx={{ position: "absolute", left: "200px", top: "-30px" }}>
-          <Image src={assets.svgs.arrow} width={100} height={100} alt="arrow" />
+          <Image src="https://i.ibb.co.com/743hTnp/arrow.png" width={100} height={100} alt="arrow" />
         </Box>
         <Box sx={{ display: "flex", gap: 2 }}>
           <Box mt={4}>
             <Image
-              src={assets.images.doctor1}
+              src="https://i.ibb.co.com/TtJH2Fy/doctor1.png"
               width={240}
               height={380}
               alt="doctor1"
@@ -79,7 +79,7 @@ const HeroSection = () => {
           </Box>
           <Box>
             <Image
-              src={assets.images.doctor2}
+              src="https://i.ibb.co.com/7C4ZVht/doctor2.png"
               width={240}
               height={350}
               alt="doctor2"
@@ -94,7 +94,7 @@ const HeroSection = () => {
           }}
         >
           <Image
-            src={assets.images.doctor3}
+            src="https://i.ibb.co.com/X4JYTj3/doctor3.png"
             width={240}
             height={240}
             alt="doctor3"
@@ -109,7 +109,7 @@ const HeroSection = () => {
           }}
         >
           <Image
-            src={assets.images.stethoscope}
+            src="https://i.ibb.co.com/WggJBK3/Stetoscope.png"
             width={180}
             height={180}
             alt="stethoscope"

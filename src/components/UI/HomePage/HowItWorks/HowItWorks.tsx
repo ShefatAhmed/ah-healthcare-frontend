@@ -1,11 +1,6 @@
 "use client";
 import { Box, Container, Grid, Typography } from "@mui/material";
 import Image from "next/image";
-import femaleDocImg from "@/assets/how-it-works-img.png";
-import searchIcon from "@/assets/icons/search-icon.png";
-import doctorIcon from "@/assets/icons/doctor-icon.png";
-import appointmentIcon from "@/assets/icons/appointment-icon.png";
-import charityIcon from "@/assets/icons/charity-icon.png";
 
 const HowItWorks = () => {
   return (
@@ -39,7 +34,7 @@ const HowItWorks = () => {
         <Box>
           <Grid container spacing={2} mt={5}>
             <Grid item xs={6}>
-              <Image src={femaleDocImg} alt="doctor image" />
+              <Image src="https://i.ibb.co.com/64VwqVq/how-it-works-img.png" width={100} height={100} alt="doctor image" />
             </Grid>
             <Grid item xs={6}>
               <Grid container spacing={2}>
@@ -52,7 +47,7 @@ const HowItWorks = () => {
                       padding: "20px",
                     }}
                   >
-                    <Image src={searchIcon} alt="search-icon" />
+                    <Image src="https://i.ibb.co.com/2NyrfWG/search-icon.png" width={100} height={100} alt="search-icon" />
                     <Typography
                       variant="h6"
                       component="h2"
@@ -81,7 +76,7 @@ const HowItWorks = () => {
                       padding: "20px",
                     }}
                   >
-                    <Image src={doctorIcon} alt="search-icon" />
+                    <Image src="https://i.ibb.co.com/vQMR66n/doctor-icon.png" width={100} height={100} alt="search-icon" />
                     <Typography
                       variant="h6"
                       component="h2"
@@ -110,7 +105,7 @@ const HowItWorks = () => {
                       padding: "20px",
                     }}
                   >
-                    <Image src={appointmentIcon} alt="search-icon" />
+                    <Image src="https://i.ibb.co.com/9W19p1L/appointment-icon.png" width={100} height={100} alt="search-icon" />
                     <Typography
                       variant="h6"
                       component="h2"
@@ -139,7 +134,7 @@ const HowItWorks = () => {
                       padding: "20px",
                     }}
                   >
-                    <Image src={charityIcon} alt="search-icon" />
+                    <Image src="https://i.ibb.co.com/HCtynFj/charity-icon.png" width={100} height={100} alt="search-icon" />
                     <Typography
                       variant="h6"
                       component="h2"

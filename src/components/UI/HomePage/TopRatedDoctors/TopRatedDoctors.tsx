@@ -4,7 +4,6 @@ import {
   Card,
   CardActions,
   CardContent,
-  CardMedia,
   Container,
   Grid,
   Typography,
@@ -42,7 +41,7 @@ const TopRatedDoctors = async () => {
               <Card>
                 <Box>
                   <Image
-                    src={doctor.profilePhoto}
+                    src={doctor.profilePhoto || "https://i.ibb.co.com/F0gccwX/pngegg.png"}
                     width={500}
                     height={100}
                     alt="doctor"

@@ -49,7 +49,7 @@ const Specialist = async () => {
               }}
             >
               <Image
-                src={speciality.icon}
+                src={speciality.icon || "https://i.ibb.co.com/F0gccwX/pngegg.png"}
                 height={100}
                 width={100}
                 alt="specialityIcon"

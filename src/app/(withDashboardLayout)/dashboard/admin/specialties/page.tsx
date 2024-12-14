@@ -41,7 +41,7 @@ const SpecialtiesPage = () => {
       renderCell: ({ row }) => {
         return (
           <Box>
-            <Image src={row.icon} width={30} height={30} alt="icon" />
+            <Image src={row.icon || "https://i.ibb.co.com/F0gccwX/pngegg.png"} width={30} height={30} alt="icon" />
           </Box>
         );
       },

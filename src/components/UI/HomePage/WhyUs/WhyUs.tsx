@@ -1,29 +1,27 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
-import assets from "@/assets";
 import Image from "next/image";
-import chooseUsImg from "@/assets/choose-us.png";
 
 const servicesData = [
   {
-    imageSrc: assets.svgs.award,
+    imageSrc: "https://i.ibb.co.com/k5vtK6b/award-icon.png",
     title: "Award Winning Service",
     description:
       "Duas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui offici",
   },
   {
-    imageSrc: assets.svgs.care,
+    imageSrc: "https://i.ibb.co.com/5Lm2jCR/care-icon.png",
     title: "Best Quality Pregnancy Care",
     description:
       "Duas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui offici",
   },
   {
-    imageSrc: assets.svgs.equipment,
+    imageSrc: "https://i.ibb.co.com/RSK14cp/medical-equipment-icon.png",
     title: "Complete Medical Equipments",
     description:
       "Duas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui offici",
   },
   {
-    imageSrc: assets.svgs.call,
+    imageSrc: "https://i.ibb.co.com/yBmghTD/call-icon.png",
     title: "Dedicated Emergency Care",
     description:
       "Duas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui offici",
@@ -66,7 +64,7 @@ const WhyUs = () => {
                   borderRadius: "10px",
                 }}
               >
-                <Image src={servicesData[0].imageSrc} width={50} alt="award" />
+                <Image src="https://i.ibb.co.com/k5vtK6b/award-icon.png" width={50} height={50} alt="award" />
               </Box>
               <Box>
                 <Typography
@@ -100,7 +98,7 @@ const WhyUs = () => {
                   borderRadius: "10px",
                 }}
               >
-                <Image src={servicesData[1].imageSrc} width={50} alt="award" />
+                <Image src="https://i.ibb.co.com/5Lm2jCR/care-icon.png" width={50} height={50} alt="care" />
               </Box>
               <Box>
                 <Typography variant="h6" component="h6" fontWeight={600}>
@@ -128,7 +126,7 @@ const WhyUs = () => {
                   borderRadius: "10px",
                 }}
               >
-                <Image src={servicesData[2].imageSrc} width={50} alt="award" />
+                <Image src="https://i.ibb.co.com/RSK14cp/medical-equipment-icon.png" width={50} height={50} alt="equipment" />
               </Box>
               <Box>
                 <Typography variant="h6" component="h6" fontWeight={600}>
@@ -157,7 +155,7 @@ const WhyUs = () => {
                   borderRadius: "10px",
                 }}
               >
-                <Image src={servicesData[3].imageSrc} width={50} alt="award" />
+                <Image src="https://i.ibb.co.com/yBmghTD/call-icon.png" width={50} height={50} alt="call" />
               </Box>
               <Box>
                 <Typography variant="h6" component="h6" fontWeight={600}>
@@ -177,7 +175,7 @@ const WhyUs = () => {
                 alignItems: "center",
               }}
             >
-              <Image src={chooseUsImg} width={400} alt="choose us" />
+              <Image src="https://i.ibb.co.com/34MqJYm/choose-us.png" width={400} height={400} alt="choose us" />
             </Box>
           </Grid>
         </Grid>

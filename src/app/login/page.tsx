@@ -1,5 +1,4 @@
 "use client";
-import assets from "@/assets";
 import AHForm from "@/components/Forms/AHForm";
 import AHInput from "@/components/Forms/AHInput";
 import { userLogin } from "@/services/actions/userLogin";
@@ -64,7 +63,7 @@ const LoginPage = () => {
             <Stack>
               <Box>
                 <Image
-                  src={assets.svgs.logo}
+                  src="https://i.ibb.co.com/sCmZPpL/logo.png"
                   width={50}
                   height={50}
                   alt="logo"

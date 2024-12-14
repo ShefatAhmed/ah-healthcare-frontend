@@ -1,7 +1,7 @@
 "use client";
 import { Box, Button, Container, Grid, Stack, Typography } from "@mui/material";
 import Image from "next/image";
-import assets from "@/assets";
+import logo from "@/assets/svgs/logo.svg";
 import Link from "next/link";
 
 import { FieldValues } from "react-hook-form";
@@ -97,7 +97,7 @@ const RegisterPage = () => {
             }}
           >
             <Box>
-              <Image src={assets.svgs.logo} width={50} height={50} alt="logo" />
+              <Image src="https://i.ibb.co.com/sCmZPpL/logo.png" width={50} height={50} alt="logo" />
             </Box>
             <Box>
               <Typography variant="h6" fontWeight={600}>
