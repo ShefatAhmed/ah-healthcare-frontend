@@ -23,7 +23,7 @@ const ScheduleModal = ({ open, setOpen }: TProps) => {
     values.startTime = timeFormatter(values.startTime);
     values.endTime = timeFormatter(values.endTime);
     try {
-      const res = await createSchedule(values)
+      const res = await createSchedule(values);
       if (res?.data?.length) {
         toast.success("Schedules created successfully!");
         setOpen(false);
