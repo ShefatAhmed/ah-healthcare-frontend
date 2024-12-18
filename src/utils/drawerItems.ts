@@ -10,9 +10,19 @@ import TryIcon from '@mui/icons-material/Try';
 import BookOnlineIcon from '@mui/icons-material/BookOnline';
 import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
+import PersonIcon from '@mui/icons-material/Person';
 
 export const drawerItems = (role: UserRole): DrawerItem[] => {
   const roleMenus: DrawerItem[] = [];
+
+  const defaultMenus = [
+    {
+       title: 'Profile',
+       path: `${role}/profile`,
+       icon: PersonIcon,
+    }
+ ];
+
   switch (role) {
     case USER_ROLE.SUPER_ADMIN:
       roleMenus.push(
@@ -107,5 +117,5 @@ export const drawerItems = (role: UserRole): DrawerItem[] => {
     default:
       break;
   }
-  return [...roleMenus];
+  return [...roleMenus, ...defaultMenus];
 };
