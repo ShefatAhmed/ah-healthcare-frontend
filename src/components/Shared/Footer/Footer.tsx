@@ -1,44 +1,46 @@
 import { Box, Container, Stack, Typography } from "@mui/material";
 import Image from "next/image";
 import Link from "next/link";
+import facebookIcon from "@/assets/landing_page/facebook.png";
+import instagramIcon from "@/assets/landing_page/instagram.png";
+import twitterIcon from "@/assets/landing_page/twitter.png";
+import linkedIcon from "@/assets/landing_page/linkedin.png";
 
 const Footer = () => {
   return (
-    <Box bgcolor="rgb(17, 26, 34)" py={5}>
+    <Box bgcolor="rgb(17, 26, 34)" py={5} mt={10}>
       <Container>
-        <Stack direction="row" justifyContent="center" gap={4}>
-          <Typography component={Link} href="/consultation" color="#fff">
+        <Stack direction="row" gap={4} justifyContent="center">
+          <Typography color="#fff" component={Link} href="/consultation">
             Consultation
           </Typography>
-          <Typography component={Link} href="/health-plans" color="#fff">
-            Health Plans
-          </Typography>
-          <Typography component={Link} href="/medicine" color="#fff">
-            Medicine
-          </Typography>
-          <Typography component={Link} href="/diagnostics" color="#fff">
-            Diagnostics
-          </Typography>
-          <Typography component={Link} href="/ngos" color="#fff">
-            NGOs
-          </Typography>
+          <Typography color="#fff">Health Plans</Typography>
+          <Typography color="#fff">Medicine</Typography>
+          <Typography color="#fff">Diagnostics</Typography>
+          <Typography color="#fff">NGOs</Typography>
         </Stack>
-        <Stack direction="row" justifyContent="center" gap={4} py={2}>
-          <Image src="https://i.ibb.co.com/6F9VLkm/facebook.png" width={30} height={30} alt="facebookIcon" />
-          <Image src="https://i.ibb.co.com/6F9VLkm/facebook.png" width={30} height={30} alt="facebookIcon" />
-          <Image src="https://i.ibb.co.com/6F9VLkm/facebook.png" width={30} height={30} alt="facebookIcon" />
-          <Image src="https://i.ibb.co.com/6F9VLkm/facebook.png" width={30} height={30} alt="facebookIcon" />
+
+        <Stack direction="row" gap={2} justifyContent="center" py={3}>
+          <Image src={facebookIcon} width={30} height={30} alt="facebook" />
+          <Image src={instagramIcon} width={30} height={30} alt="facebook" />
+          <Image src={twitterIcon} width={30} height={30} alt="facebook" />
+          <Image src={linkedIcon} width={30} height={30} alt="facebook" />
         </Stack>
-        <Box sx={{border: "1px dashed lightgray"}}></Box>
+        <Box
+          sx={{
+            border: "1px dashed lightgray",
+          }}
+        ></Box>
+
         <Stack
           direction="row"
+          gap={2}
           justifyContent="space-between"
           alignItems="center"
-          gap={4}
-          py={2}
+          py={3}
         >
           <Typography component="p" color="white">
-            &copy; 2024 AH HealthCare. All Rights Reserved
+            &copy;2024 Ph HealthCare. All Rights Reserved.
           </Typography>
           <Typography
             variant="h4"
