@@ -60,9 +60,11 @@ const LoginPage = () => {
               alignItems: "center",
             }}
           >
-            <Stack sx={{
-              alignItems: "center"
-            }}>
+            <Stack
+              sx={{
+                alignItems: "center",
+              }}
+            >
               <Box>
                 <Image
                   src="https://i.ibb.co.com/sCmZPpL/logo.png"
@@ -123,14 +125,19 @@ const LoginPage = () => {
                     />
                   </Grid>
                 </Grid>
-                <Typography
-                  mb={1}
-                  textAlign="end"
-                  component="p"
-                  fontWeight={300}
-                >
-                  Forgot Password?
-                </Typography>
+                <Link href={"/forgot-password"}>
+                  <Typography
+                    mb={1}
+                    textAlign="end"
+                    component="p"
+                    fontWeight={300}
+                    sx={{
+                      textDecoration: "underline",
+                    }}
+                  >
+                    Forgot Password?
+                  </Typography>
+                </Link>
                 <Button
                   sx={{
                     margin: "10px 0px",
