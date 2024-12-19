@@ -49,7 +49,7 @@ const Profile = () => {
                      <Image
                         height={300}
                         width={400}
-                        src={data?.profilePhoto}
+                        src={data?.profilePhoto || "https://i.ibb.co.com/F0gccwX/pngegg.png"}
                         alt='User Photo'
                      />
                   </Box>

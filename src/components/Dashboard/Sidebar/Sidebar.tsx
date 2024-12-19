@@ -1,7 +1,6 @@
 "use client";
 import { Box, List, Stack, Typography } from "@mui/material";
 import Image from "next/image";
-import logo from "@/assets/svgs/logo.svg";
 import Link from "next/link";
 import { drawerItems } from "@/utils/drawerItems";
 import { UserRole } from "@/types";
