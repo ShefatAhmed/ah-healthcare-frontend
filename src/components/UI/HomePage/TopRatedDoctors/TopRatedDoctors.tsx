@@ -4,12 +4,14 @@ import {
   Card,
   CardActions,
   CardContent,
+  CardMedia,
   Container,
   Grid,
   Typography,
 } from "@mui/material";
 import Image from "next/image";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
+import Link from "next/link";
 
 const TopRatedDoctors = async () => {
   const res = await fetch("http://localhost:4000/api/v1/doctor?page=1&limit=3");
@@ -28,23 +30,35 @@ const TopRatedDoctors = async () => {
           Our Top Rated Doctors
         </Typography>
         <Typography component="p" fontSize={18} fontWeight={400} sx={{ mt: 2 }}>
-          Access to expert physicians and surgeons, advanced technologies.
+          Access to expert physicians and surgeons, advanced technologies
         </Typography>
         <Typography component="p" fontSize={18} fontWeight={400}>
           and top-quality surgery facilities right here.
         </Typography>
       </Box>
+
       <Container sx={{ margin: "30px auto" }}>
         <Grid container spacing={2}>
           {doctors.map((doctor: any) => (
             <Grid item key={doctor.id} md={4}>
               <Card>
-                <Box>
+                <Box
+                  sx={{
+                    width: "100%",
+                    height: 300,
+                    "& img": {
+                      width: "100%",
+                      height: "100%",
+                      overflow: "hidden",
+                      objectFit: "cover",
+                    },
+                  }}
+                >
                   <Image
                     src={doctor.profilePhoto || "https://i.ibb.co.com/F0gccwX/pngegg.png"}
+                    alt="doctor"
                     width={500}
                     height={100}
-                    alt="doctor"
                   />
                 </Box>
                 <CardContent>
@@ -54,7 +68,7 @@ const TopRatedDoctors = async () => {
                   <Typography variant="body2" color="text.secondary">
                     {doctor.qualification}, {doctor.designation}
                   </Typography>
-                  <Typography variant="body2" color="text.secondary">
+                  <Typography variant="body2" color="text.secondary" mt={1}>
                     <LocationOnIcon /> {doctor.address}
                   </Typography>
                 </CardContent>
@@ -82,8 +96,10 @@ const TopRatedDoctors = async () => {
             sx={{
               marginTop: "20px",
             }}
+            component={Link}
+            href="/doctors"
           >
-            View All
+            View ALL
           </Button>
         </Box>
       </Container>
